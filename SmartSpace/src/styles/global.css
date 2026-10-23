@@ -1,0 +1,19 @@
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #0a0f18;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(88, 183, 255, 0.35);
+  color: #ffffff;
+}

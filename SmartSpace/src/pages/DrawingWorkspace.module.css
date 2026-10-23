@@ -1,0 +1,266 @@
+.workspaceShell {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr) 320px;
+  grid-template-rows: 64px minmax(0, 1fr) 52px;
+  gap: 14px;
+  min-height: calc(100vh - 96px);
+}
+
+.topBar,
+.leftPanel,
+.rightPanel,
+.bottomBar,
+.canvasPanel {
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(10px);
+}
+
+.topBar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+}
+
+.menuRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.menuItem {
+  min-width: auto;
+  color: #edf2f7;
+}
+
+.leftPanel,
+.rightPanel {
+  padding: 16px;
+  overflow: auto;
+}
+
+.leftPanel {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.canvasPanel {
+  grid-column: 2;
+  grid-row: 2;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  min-height: 0;
+}
+
+.rightPanel {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.bottomBar {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  padding: 10px 16px;
+  align-items: center;
+}
+
+.statusBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.statusLabel {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: rgba(167, 180, 196, 0.92);
+  text-transform: uppercase;
+}
+
+.statusValue {
+  font-size: 14px;
+  color: #edf2f7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toolStack {
+  display: grid;
+  gap: 10px;
+}
+
+.toolGroup {
+  margin-bottom: 18px;
+}
+
+.toolGroup:last-child {
+  margin-bottom: 0;
+}
+
+.toolGroupLabel {
+  margin: 0 0 8px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(167, 180, 196, 0.7);
+}
+
+.canvasWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  background: radial-gradient(circle at center, rgba(88, 183, 255, 0.10), transparent 52%);
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.95;
+  background-image:
+    linear-gradient(rgba(88, 183, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88, 183, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px;
+}
+
+.gridOverlayHidden {
+  display: none;
+}
+
+.coordinateForm {
+  display: grid;
+  gap: 8px;
+}
+
+.coordinateRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.coordinateHint {
+  font-size: 12px;
+  color: #a7b4c4;
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.canvasHint {
+  position: absolute;
+  inset: 18px auto auto 18px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(10, 15, 24, 0.78);
+  border: 1px solid rgba(88, 183, 255, 0.22);
+  color: #a7b4c4;
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 320px;
+}
+
+.sectionTitle {
+  margin: 0 0 12px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #a7b4c4;
+}
+
+.toolButton {
+  justify-content: flex-start;
+  border-radius: 14px !important;
+}
+
+.toolButtonActive {
+  background: rgba(88, 183, 255, 0.16) !important;
+  border-color: rgba(88, 183, 255, 0.42) !important;
+}
+
+.propertyList,
+.historyList,
+.layerList {
+  display: grid;
+  gap: 10px;
+}
+
+.propertyCard,
+.historyCard,
+.layerCard {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.propertyLabel {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #a7b4c4;
+  margin-bottom: 4px;
+}
+
+.propertyValue {
+  font-size: 14px;
+  color: #edf2f7;
+}
+
+@media (max-width: 1200px) {
+  .workspaceShell {
+    grid-template-columns: 260px minmax(0, 1fr);
+    grid-template-rows: 64px minmax(560px, 1fr) auto auto;
+  }
+
+  .rightPanel {
+    grid-column: 1 / -1;
+    grid-row: 4;
+  }
+
+  .bottomBar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .workspaceShell {
+    grid-template-columns: 1fr;
+    grid-template-rows: 64px auto minmax(520px, 1fr) auto auto;
+  }
+
+  .leftPanel {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .canvasPanel {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .rightPanel {
+    grid-row: 4;
+  }
+
+  .bottomBar {
+    grid-row: 5;
+    grid-template-columns: 1fr 1fr;
+  }
+}

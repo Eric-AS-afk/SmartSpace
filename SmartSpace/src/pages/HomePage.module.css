@@ -1,0 +1,81 @@
+.heroShell {
+  position: relative;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(88, 183, 255, 0.12), transparent 24%),
+    radial-gradient(circle at 80% 10%, rgba(159, 176, 195, 0.10), transparent 20%),
+    linear-gradient(180deg, rgba(17, 24, 39, 0.96), rgba(10, 15, 24, 0.98));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+  overflow: hidden;
+}
+
+.heroShell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  padding: 32px;
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border: 1px solid rgba(88, 183, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.actionGrid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.actionPrimary,
+.actionSecondary,
+.actionTertiary {
+  min-height: 100%;
+}
+
+.actionPrimary {
+  grid-column: span 12;
+}
+
+.actionSecondary {
+  grid-column: span 12;
+}
+
+.actionTertiary {
+  grid-column: span 12;
+}
+
+@media (min-width: 900px) {
+  .heroInner {
+    padding: 48px;
+  }
+
+  .actionPrimary {
+    grid-column: span 6;
+  }
+
+  .actionSecondary {
+    grid-column: span 6;
+  }
+
+  .actionTertiary {
+    grid-column: span 6;
+  }
+}
